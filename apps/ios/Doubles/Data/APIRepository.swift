@@ -240,9 +240,18 @@ final class APIRepository: DoublesRepository {
 
     func runPersonaModeration(_ text: String) async throws -> Bool { true } // server enforces on create
 
-    /// Record adult age assurance (after the UI's 18+ confirmation). Idempotent.
-    func ageVerify() async throws {
-        let _: AgeEnvelope = try await request("me/age-verify", method: "POST", body: [:])
+    /// Start a Veriff age-estimation session; returns the hosted URL to present.
+    func startAgeVerification() async throws -> URL {
+        let env: AgeStartEnvelope = try await request("me/age-verify/start", method: "POST", body: [:])
+        guard let url = URL(string: env.url) else { throw APIError.decoding("bad age-verify url") }
+        return url
+    }
+
+    /// Whether the server has confirmed the caller is 18+ (set only by the
+    /// HMAC-verified Veriff webhook — the client can never self-assert age).
+    func ageVerified() async throws -> Bool {
+        let env: AgeStatusEnvelope = try await request("me/age-verify")
+        return env.ageVerified
     }
 
     /// Register the APNs device token for morning-recap push (idempotent).
@@ -376,4 +385,5 @@ private struct RelationshipDTO: Decodable {
     let affinity: Int
 }
 private struct EntitlementDTO: Decodable { let sku, status: String }
-private struct AgeEnvelope: Decodable { let ageVerified: Bool }
+private struct AgeStartEnvelope: Decodable { let url: String; let id: String }
+private struct AgeStatusEnvelope: Decodable { let ageVerified: Bool }

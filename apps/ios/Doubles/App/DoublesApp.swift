@@ -97,7 +97,8 @@ struct LiveGate: View {
     private func resolve() async {
         phase = .checking
         do {
-            try? await repo.ageVerify()              // honest: UI already confirmed 18+
+            // Age is verified via Veriff during onboarding and enforced server-side
+            // (requireVerified). The client never self-asserts age.
             let worlds = try await repo.worlds()
             if let token = PushManager.shared.deviceToken {
                 try? await repo.registerPushToken(token)   // morning-recap push

@@ -4,15 +4,19 @@ import { json, handleError } from '@/lib/responses';
 export const runtime = 'nodejs';
 
 /**
- * POST /me/age-verify — record adult age assurance.
- * The vendor is stubbed (brief §8): we just set the flag. The seam to integrate
- * a real age-assurance vendor lives here.
+ * GET /me/age-verify — read the caller's age-assurance status. The client polls
+ * this after completing the Veriff flow until `ageVerified` flips true.
+ *
+ * NOTE: there is deliberately NO endpoint that lets the client *assert* its own
+ * age. The flag is set only by the HMAC-verified Veriff decision webhook
+ * (see ./webhook/route.ts). Self-declaration is not "highly effective age
+ * assurance" under the Online Safety Act.
  */
-export async function POST(req: Request): Promise<Response> {
+export async function GET(req: Request): Promise<Response> {
   try {
     const ctx = await authenticate(req);
-    await ctx.repo.ageVerify(ctx.userId);
-    return json({ ageVerified: true });
+    const ageVerified = await ctx.repo.isAgeVerified(ctx.userId);
+    return json({ ageVerified });
   } catch (err) {
     return handleError(err);
   }

@@ -50,6 +50,8 @@
 	<!-- Kept for the live path (ignored while DOUBLES_USE_MOCK=YES). -->
 	<key>DOUBLES_API_BASE_URL</key>
 	<string>http://10.195.77.17:3000</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Doubles uses your camera for a one-time age check to confirm you are 18 or older.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

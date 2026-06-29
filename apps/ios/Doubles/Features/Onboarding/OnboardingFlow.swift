@@ -48,6 +48,11 @@ struct OnboardingFlow: View {
     @State private var inviteCode: String?
     @State private var working = false
 
+    // Age assurance (Veriff, live only)
+    @State private var veriffSheet: IdentifiedURL?
+    @State private var checkingAge = false
+    @State private var ageError: String?
+
     private let allTraits = ["instigator", "petty genius", "main character", "chaos flirt",
                              "menace", "peacemaker", "strategist", "golden retriever",
                              "villain arc", "wildcard", "overthinker", "drama magnet"]
@@ -345,33 +350,86 @@ struct OnboardingFlow: View {
     private func afterAuthIfPossible() { if session?.isAuthenticated == true { afterAuth() } }
     private func afterAuth() { advance() } // → age; the double persists after 18+
 
-    // MARK: 4 — neutral 18+ gate
+    // MARK: 4 — 18+ age assurance (Veriff live; self-declared DOB only in the offline demo)
     private var ageStep: some View {
         VStack(alignment: .leading, spacing: DS.Space.l) {
-            Chyron(label: "before we start", value: "ONE QUESTION")
-            Text("when were you born?").font(.display(30)).foregroundStyle(DS.bone)
-            Text("doubles is 18+. it gets messy — we have to check for real.")
-                .font(.ui(14)).foregroundStyle(DS.boneDim)
-            DatePicker("date of birth", selection: $dob,
-                       in: ...Date(), displayedComponents: .date)
-                .datePickerStyle(.wheel).labelsHidden().colorScheme(.dark)
-                .frame(maxWidth: .infinity)
-            Spacer()
-            PrimaryButton(title: working ? "checking…" : "continue", icon: "arrow.right",
-                          isEnabled: !working) { confirmAge() }
+            Chyron(label: "before we start", value: "ONE CHECK")
+            if isLive {
+                Text("are you 18 or older?").font(.display(30)).foregroundStyle(DS.bone)
+                Text("doubles is 18+. we run a quick, private age check — a selfie only. no document, no date of birth, and we keep just the yes/no result.")
+                    .font(.ui(14)).foregroundStyle(DS.boneDim).fixedSize(horizontal: false, vertical: true)
+                if checkingAge {
+                    HStack(spacing: DS.Space.s) {
+                        ProgressView().tint(DS.acid)
+                        Text("confirming…").font(.ui(14)).foregroundStyle(DS.boneDim)
+                    }
+                }
+                if let ageError { Text(ageError).font(.ui(13)).foregroundStyle(DS.magenta) }
+                Spacer()
+                PrimaryButton(title: working ? "starting…" : (checkingAge ? "confirming…" : "verify my age"),
+                              icon: "checkmark.shield.fill",
+                              isEnabled: !working && !checkingAge) { startVeriff() }
+            } else {
+                Text("when were you born?").font(.display(30)).foregroundStyle(DS.bone)
+                Text("doubles is 18+. (demo build — the live app runs a real age check.)")
+                    .font(.ui(14)).foregroundStyle(DS.boneDim)
+                DatePicker("date of birth", selection: $dob,
+                           in: ...Date(), displayedComponents: .date)
+                    .datePickerStyle(.wheel).labelsHidden().colorScheme(.dark)
+                    .frame(maxWidth: .infinity)
+                Spacer()
+                PrimaryButton(title: working ? "checking…" : "continue", icon: "arrow.right",
+                              isEnabled: !working) { confirmAgeOffline() }
+            }
         }
         .padding(DS.Space.l)
+        .sheet(item: $veriffSheet) { item in
+            VeriffWebView(url: item.url) { veriffSheet = nil; pollAge() }
+        }
     }
 
-    private func confirmAge() {
+    /// Live: open the Veriff age-estimation flow.
+    private func startVeriff() {
+        working = true; ageError = nil
+        Task {
+            guard let api = writeRepo() as? APIRepository else { working = false; ageError = "age check unavailable."; return }
+            do {
+                let url = try await api.startAgeVerification()
+                working = false
+                veriffSheet = IdentifiedURL(url: url)
+            } catch {
+                working = false
+                ageError = "couldn't start the age check — try again in a moment."
+            }
+        }
+    }
+
+    /// After the Veriff sheet closes, poll the server (set by the signed webhook).
+    private func pollAge() {
+        checkingAge = true; ageError = nil
+        Task {
+            guard let api = writeRepo() as? APIRepository else { checkingAge = false; return }
+            for _ in 0..<20 {
+                if let ok = try? await api.ageVerified(), ok {
+                    _ = try? await writeRepo().upsertDouble(displayName: name, handle: handle, personaPrompt: brief,
+                                                            traits: Array(traits), accentIndex: accent)
+                    checkingAge = false; advance(); return
+                }
+                try? await Task.sleep(nanoseconds: 1_500_000_000)
+            }
+            checkingAge = false
+            ageError = "still confirming — give it a few seconds, then tap verify again."
+        }
+    }
+
+    /// Offline demo only: self-declared DOB (NOT used in the live build).
+    private func confirmAgeOffline() {
         let years = Calendar.current.dateComponents([.year], from: dob, to: Date()).year ?? 0
         guard years >= 18 else { Haptics.warning(); ageBlocked = true; return }
         working = true
         Task {
-            let wr = writeRepo()
-            if let api = wr as? APIRepository { try? await api.ageVerify() }
-            _ = try? await wr.upsertDouble(displayName: name, handle: handle, personaPrompt: brief,
-                                           traits: Array(traits), accentIndex: accent)
+            _ = try? await writeRepo().upsertDouble(displayName: name, handle: handle, personaPrompt: brief,
+                                                    traits: Array(traits), accentIndex: accent)
             working = false; advance()
         }
     }
@@ -550,6 +608,12 @@ struct OnboardingFlow: View {
         }
         .accessibilityLabel(label)
     }
+}
+
+/// Wraps a URL so it can drive a `.sheet(item:)`.
+struct IdentifiedURL: Identifiable {
+    let id = UUID()
+    let url: URL
 }
 
 #Preview("Onboarding") {

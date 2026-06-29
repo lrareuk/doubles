@@ -88,6 +88,50 @@ export class Repo {
     await this.audit(userId, 'age_verify', null, {});
   }
 
+  // ---- age assurance (Veriff) ----
+  /** Record that an age-assurance session has been created for the user. */
+  async startAgeVerification(userId: string, ref: string): Promise<void> {
+    await this.ensureUser(userId);
+    must(
+      await this.sb
+        .from('users')
+        .update({ age_verification_ref: ref, age_verification_status: 'pending' })
+        .eq('id', userId)
+        .select('id'),
+    );
+    await this.audit(userId, 'age_verify_start', null, { ref });
+  }
+
+  /** Mark the user as 18+ after a HMAC-verified vendor decision. Idempotent. */
+  async markAgeApproved(userId: string, ref: string): Promise<void> {
+    if (await this.isAgeVerified(userId)) return; // already verified — ignore duplicate webhooks
+    must(
+      await this.sb
+        .from('users')
+        .update({
+          age_verified: true,
+          age_verified_at: new Date().toISOString(),
+          age_verification_status: 'approved',
+          age_verification_ref: ref,
+        })
+        .eq('id', userId)
+        .select('id'),
+    );
+    await this.audit(userId, 'age_verify_approved', null, { ref });
+  }
+
+  /** Record a non-pass age decision (declined / under-threshold / expired). */
+  async markAgeRejected(userId: string, ref: string): Promise<void> {
+    must(
+      await this.sb
+        .from('users')
+        .update({ age_verification_status: 'rejected', age_verification_ref: ref })
+        .eq('id', userId)
+        .select('id'),
+    );
+    await this.audit(userId, 'age_verify_rejected', null, { ref });
+  }
+
   // ---- doubles (self-authored only) ----
   async getMyDouble(userId: string): Promise<Double | null> {
     const { data } = await this.sb.from('doubles').select('*').eq('owner_user_id', userId).maybeSingle();

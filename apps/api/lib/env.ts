@@ -1,3 +1,5 @@
+import { HttpError } from './responses';
+
 /**
  * Server-only environment access. Never import this from client components.
  * All secrets stay server-side (brief §9).
@@ -15,6 +17,35 @@ export interface ApiEnv {
   DOUBLES_USE_BATCH?: string;
   DOUBLES_BEAT_CAP?: string;
   DOUBLES_TOKEN_BUDGET?: string;
+}
+
+/** Veriff age-assurance config (server-only). Keys never reach the client. */
+export interface VeriffEnv {
+  apiKey: string;
+  hmacSecret: string;
+  baseUrl: string;
+  callbackUrl?: string;
+}
+
+/**
+ * Resolve Veriff config, or throw a clean 503 if age assurance isn't configured
+ * yet (so the rest of the API keeps working before the vendor is wired up).
+ */
+export function getVeriff(): VeriffEnv {
+  const e = process.env;
+  const apiKey = e.VERIFF_API_KEY;
+  const hmacSecret = e.VERIFF_HMAC_SECRET;
+  if (!apiKey || !hmacSecret) {
+    throw new HttpError('age assurance is not configured', 503, 'age_assurance_unconfigured');
+  }
+  return {
+    apiKey,
+    hmacSecret,
+    // The Age-Estimation integration has its own base URL; falls back to the
+    // generic Veriff host if a dedicated one isn't provided.
+    baseUrl: e.VERIFF_BASE_URL ?? 'https://stationapi.veriff.com',
+    callbackUrl: e.VERIFF_CALLBACK_URL,
+  };
 }
 
 export function getEnv(): ApiEnv {
