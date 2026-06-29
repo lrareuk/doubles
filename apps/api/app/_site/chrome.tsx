@@ -2,7 +2,7 @@
 // Server components — no client JS needed.
 import Link from 'next/link';
 
-const CONTACT = 'alex@lrare.co.uk';
+const CONTACT = 'alex@pellar.co.uk';
 
 export function SiteHeader() {
   return (
