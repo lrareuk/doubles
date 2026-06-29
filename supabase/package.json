@@ -1,0 +1,22 @@
+{
+  "name": "@doubles/supabase",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "tsx seed/seed.ts",
+    "types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_REF\" --schema public > ../packages/db/src/generated.ts",
+    "build": "echo \"(no build)\"",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "echo \"(lint stub)\""
+  },
+  "dependencies": {
+    "@doubles/db": "workspace:*",
+    "@doubles/shared": "workspace:*",
+    "@supabase/supabase-js": "^2.47.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

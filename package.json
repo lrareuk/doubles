@@ -1,0 +1,26 @@
+{
+  "name": "doubles",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Doubles — Tomodachi Life crossed with an AI social sim, with your real friend group.",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "seed": "pnpm --filter @doubles/supabase seed",
+    "db:types": "pnpm --filter @doubles/supabase types"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "prettier": "^3.4.2",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
+  }
+}

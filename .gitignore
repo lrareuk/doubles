@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+.next/
+out/
+*.tsbuildinfo
+
+# turbo
+.turbo/
+
+# env — never commit real secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# logs
+*.log
+firebase-debug.log
+npm-debug.log*
+
+# supabase local
+supabase/.branches/
+supabase/.temp/
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
+
+# iOS / Xcode
+apps/ios/**/xcuserdata/
+apps/ios/**/*.xcuserstate
+apps/ios/**/.build/
+apps/ios/DerivedData/

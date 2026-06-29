@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Enables native Sign in with Apple. Wire this file into the target via
+	     Xcode (Signing & Capabilities → + Capability → Sign in with Apple), or set
+	     CODE_SIGN_ENTITLEMENTS = Doubles.entitlements. Requires the capability on
+	     the App ID in the Apple Developer portal first (see SETUP.md). -->
+	<key>com.apple.developer.applesignin</key>
+	<array>
+		<string>Default</string>
+	</array>
+	<!-- For push notifications (the morning recap). Use "development" for debug
+	     builds, "production" for release. -->
+	<key>aps-environment</key>
+	<string>development</string>
+</dict>
+</plist>

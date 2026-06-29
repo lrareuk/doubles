@@ -1,0 +1,29 @@
+# Supabase local dev config for Doubles.
+# `supabase start` boots Postgres + Auth + Storage on these ports.
+project_id = "doubles"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:3000"
+# Adults only (brief §9). Email auth is enough for the scaffold.
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
