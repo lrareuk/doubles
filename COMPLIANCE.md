@@ -96,7 +96,7 @@ Codebase verification checked five public claims. Two are materially false/misle
 
 - **Reality:** In-app deletion (`deleteAccount()` → `deleteMyDoubleAndPurge`) deletes only the `doubles` row and its directly cascaded game rows (world_members, relationships, agendas, season_scores). It does **NOT** delete the auth user (email), the app `users` row (which holds `age_verified`), entitlements, bets, clout_balances, the user's own power_moves, recaps, reveal_unlocks, device_tokens, or audit_log. The repo comment claims beat `uuid[]` participant references are scrubbed, but **no such UPDATE exists**.
 - **Fix (choose one):**
-  - **(a) Correct the wording** to match reality: *"You can delete your double and its associated game data from inside the app at any time; this happens immediately. To fully delete your account, including your sign-in email and purchase history, contact us at alex@pellar.co.uk and we will erase it."* OR
+  - **(a) Correct the wording** to match reality: *"You can delete your double and its associated game data from inside the app at any time; this happens immediately. To fully delete your account, including your sign-in email and purchase history, contact us at privacy@pellar.co.uk and we will erase it."* OR
   - **(b) Implement true deletion** (delete the `users` row + `auth.users` via Supabase admin and the user-keyed rows) so the existing "purged" wording becomes accurate.
 - **Why it matters:** UK GDPR Art 17 (erasure) plus an accuracy/misrepresentation issue. Option (b) is the stronger long-term answer.
 

@@ -27,7 +27,7 @@ export const privacyDoc: LegalDocData = {
             "Controller / operator: Doubles, operated by Pellar Technologies Limited",
             "Operating from: the United Kingdom.",
             "Website: lrare.co.uk",
-            "Contact for any privacy question or to exercise your rights: alex@pellar.co.uk",
+            "Contact for any privacy question or to exercise your rights: privacy@pellar.co.uk",
             "Postal address: 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW"
           ]
         },
@@ -203,7 +203,7 @@ export const privacyDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "To exercise any of these rights, email alex@pellar.co.uk or use the in-app controls. We will respond within one month (extendable by two further months for complex requests). Exercising your rights is free unless a request is manifestly unfounded or excessive.",
+          "text": "To exercise any of these rights, email privacy@pellar.co.uk or use the in-app controls. We will respond within one month (extendable by two further months for complex requests). Exercising your rights is free unless a request is manifestly unfounded or excessive.",
           "items": []
         },
         {
@@ -223,7 +223,7 @@ export const privacyDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "We do not knowingly collect personal data from anyone under 18. If we learn that an underage person has created an account, we will delete it and the associated data. If you believe a minor is using the app, contact us at alex@pellar.co.uk.",
+          "text": "We do not knowingly collect personal data from anyone under 18. If we learn that an underage person has created an account, we will delete it and the associated data. If you believe a minor is using the app, contact us at privacy@pellar.co.uk.",
           "items": []
         }
       ]
@@ -263,7 +263,7 @@ export const privacyDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "The categories of personal information we collect map to CCPA categories as follows: identifiers (account email, name, device push token); commercial information (purchase/subscription records); internet/network activity (limited diagnostic logs and in-app activity); and user-generated content (your double's persona, traits and gameplay data). We collect these for the business purposes described in section 3. To exercise a right, email alex@pellar.co.uk; we may need to verify your request. You may use an authorised agent where the law allows.",
+          "text": "The categories of personal information we collect map to CCPA categories as follows: identifiers (account email, name, device push token); commercial information (purchase/subscription records); internet/network activity (limited diagnostic logs and in-app activity); and user-generated content (your double's persona, traits and gameplay data). We collect these for the business purposes described in section 3. To exercise a right, email privacy@pellar.co.uk; we may need to verify your request. You may use an authorised agent where the law allows.",
           "items": []
         }
       ]
@@ -283,7 +283,7 @@ export const privacyDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "If you would rather we do it for you, email alex@pellar.co.uk and we will erase your data without undue delay (and within one month). We retain only what the law requires (for example, limited transaction records for tax). Purchases themselves are processed and recorded by Apple or Google under their own policies and retention rules.",
+          "text": "If you would rather we do it for you, email privacy@pellar.co.uk and we will erase your data without undue delay (and within one month). We retain only what the law requires (for example, limited transaction records for tax). Purchases themselves are processed and recorded by Apple or Google under their own policies and retention rules.",
           "items": []
         },
         {
@@ -340,7 +340,7 @@ export const termsDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "We are based in the United Kingdom. You can reach us at alex@pellar.co.uk, or via the website at lrare.co.uk. Doubles is operated by Pellar Technologies Limited, a company registered in England & Wales, registered office 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW.",
+          "text": "We are based in the United Kingdom. You can reach us at support@pellar.co.uk, or via the website at lrare.co.uk. Doubles is operated by Pellar Technologies Limited, a company registered in England & Wales, registered office 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW.",
           "items": []
         },
         {
@@ -408,7 +408,7 @@ export const termsDoc: LegalDocData = {
           "text": "",
           "items": [
             "You are responsible for safeguarding your login credentials and any device used to access the App, and for all activity that occurs under your account;",
-            "You must notify us promptly at alex@pellar.co.uk if you suspect any unauthorised use of, or security breach affecting, your account;",
+            "You must notify us promptly at security@pellar.co.uk if you suspect any unauthorised use of, or security breach affecting, your account;",
             "You must not share, sell, rent or transfer your account, or let anyone else use it;",
             "One person, one account: you must not create accounts using automated means or maintain multiple accounts to abuse features, currencies, allowances or promotions; and",
             "We are not liable for any loss arising from unauthorised use of your account where you have failed to keep your credentials secure, except to the extent caused by our breach of these Terms or our negligence."
@@ -749,7 +749,7 @@ export const termsDoc: LegalDocData = {
             "Product claims. We, not Apple, are responsible for addressing any claims by you or any third party relating to the App or your use of it, including: product liability claims; any claim that the App fails to conform to a legal or regulatory requirement; and consumer-protection, privacy or similar claims (including in connection with the App's use of any in-app purchase framework);",
             "Intellectual property. If a third party claims the App or your possession and use of it infringes that third party's intellectual property rights, we, not Apple, are solely responsible for the investigation, defence, settlement and discharge of such a claim;",
             "Legal compliance. You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as \"terrorist-supporting\", and that you are not on any U.S. Government list of prohibited or restricted parties;",
-            "Developer contact. Questions, complaints or claims about the App should be directed to us at alex@pellar.co.uk and at our registered office, 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW; and",
+            "Developer contact. Questions, complaints or claims about the App should be directed to us at support@pellar.co.uk and at our registered office, 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW; and",
             "Third-party beneficiary. Apple and Apple's subsidiaries are third-party beneficiaries of these Terms, and upon your acceptance Apple has the right (and is deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary."
           ]
         },
@@ -797,7 +797,7 @@ export const termsDoc: LegalDocData = {
             "No waiver. Failure to enforce a provision is not a waiver of it;",
             "Assignment. You may not assign or transfer your rights under these Terms; we may assign ours to a successor in connection with a reorganisation, merger or sale, provided your rights are not adversely affected;",
             "No third-party rights. Except for Apple's rights in Section 18, a person who is not a party to these Terms has no rights under the Contracts (Rights of Third Parties) Act 1999 to enforce them; and",
-            "Complaints and contact. For any questions, complaints or notices about these Terms or the App, contact us at alex@pellar.co.uk."
+            "Complaints and contact. For any questions, complaints or notices about these Terms or the App, contact us at legal@pellar.co.uk."
           ]
         }
       ]
