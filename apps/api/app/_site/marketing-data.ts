@@ -100,7 +100,7 @@ export const marketing = {
     },
     {
       "q": "what happens to my data?",
-      "a": "your personal info is encrypted on your device (aes-256-gcm) before it's stored, and we don't sell personal data. heads up: the persona/brief text you write is sent to anthropic (claude) to generate your episodes — so keep it fictional and don't put anything truly private in there. delete your account in-app anytime and your data is purged. [governing entity, jurisdiction & full privacy terms TBD — owner to confirm: Doubles operated by Pellar Technologies Limited, England & Wales.]"
+      "a": "we keep it minimal and we don't sell your data. it's protected with industry-standard encryption (tls in transit, encrypted at rest by our host). heads up: the persona/brief text you write is sent to anthropic (claude) to generate your episodes — so keep it fictional and don't put anything truly private in there. delete your account in-app anytime and your data is purged. full details in our privacy policy."
     },
     {
       "q": "do i control what my double does?",

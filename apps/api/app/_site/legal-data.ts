@@ -303,7 +303,7 @@ export const privacyDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "Last updated: [INSERT DATE]. Governing law: England & Wales",
+          "text": "Last updated: 30 June 2026. Governing law: England & Wales",
           "items": []
         }
       ]
@@ -328,7 +328,7 @@ export const privacyDoc: LegalDocData = {
 
 export const termsDoc: LegalDocData = {
   "docTitle": "Doubles — Terms of Service & End User Licence Agreement (EULA)",
-  "plainSummary": "These are the Terms of Service for Doubles, an 18-and-over AI social-simulation app where you write a fictional \"double\" of yourself, drop it into a \"world\" with friends, and an AI engine generates an overnight in-character \"episode\" you read in the morning. In plain terms: you must be 18+; everything the characters say is AI-generated fiction (not real people, not real views, do not rely on it); \"clout\" is a play-money currency with no cash value and bets are entertainment, not gambling; \"doubles+\" is an auto-renewing subscription and packs are consumables, all billed and refunded by Apple or Google; you are responsible for the persona text you write; and we can suspend accounts that break the rules. The app is provided \"as is\", liability is capped as far as the law allows, and the agreement is governed by the law of England and Wales. Nothing here removes the rights UK consumers have under the Consumer Rights Act 2015. PLACEHOLDERS to confirm before publishing are flagged in the review notes — chiefly the legal entity name and the governing-law/jurisdiction choice.",
+  "plainSummary": "These are the Terms of Service for Doubles, an 18-and-over AI social-simulation app where you write a fictional \"double\" of yourself, drop it into a \"world\" with friends, and an AI engine generates an overnight in-character \"episode\" you read in the morning. In plain terms: you must be 18+; everything the characters say is AI-generated fiction (not real people, not real views, do not rely on it); \"clout\" is a play-money currency with no cash value and bets are entertainment, not gambling; \"doubles+\" is an auto-renewing subscription and packs are consumables, all billed and refunded by Apple or Google; you are responsible for the persona text you write; and we can suspend accounts that break the rules. The app is provided \"as is\", liability is capped as far as the law allows, and the agreement is governed by the law of England and Wales. Nothing here removes the rights UK consumers have under the Consumer Rights Act 2015.",
   "sections": [
     {
       "heading": "0. About these terms and who we are",
@@ -340,7 +340,7 @@ export const termsDoc: LegalDocData = {
         },
         {
           "type": "p",
-          "text": "We are based in the United Kingdom. You can reach us at alex@lrare.co.uk, or via the website at lrare.co.uk. [LEGAL ENTITY NAME, registered company number (if any), and registered/postal address TO BE CONFIRMED and inserted here — Apple's minimum EULA terms require the developer's name and address and a point of contact for support and claims.]",
+          "text": "We are based in the United Kingdom. You can reach us at alex@lrare.co.uk, or via the website at lrare.co.uk. Doubles is operated by Pellar Technologies Limited, a company registered in England & Wales, registered office 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW.",
           "items": []
         },
         {
@@ -749,7 +749,7 @@ export const termsDoc: LegalDocData = {
             "Product claims. We, not Apple, are responsible for addressing any claims by you or any third party relating to the App or your use of it, including: product liability claims; any claim that the App fails to conform to a legal or regulatory requirement; and consumer-protection, privacy or similar claims (including in connection with the App's use of any in-app purchase framework);",
             "Intellectual property. If a third party claims the App or your possession and use of it infringes that third party's intellectual property rights, we, not Apple, are solely responsible for the investigation, defence, settlement and discharge of such a claim;",
             "Legal compliance. You represent and warrant that you are not located in a country subject to a U.S. Government embargo or designated as \"terrorist-supporting\", and that you are not on any U.S. Government list of prohibited or restricted parties;",
-            "Developer contact. Questions, complaints or claims about the App should be directed to us at alex@lrare.co.uk [and the address to be inserted under Section 0]; and",
+            "Developer contact. Questions, complaints or claims about the App should be directed to us at alex@lrare.co.uk and at our registered office, 115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW; and",
             "Third-party beneficiary. Apple and Apple's subsidiaries are third-party beneficiaries of these Terms, and upon your acceptance Apple has the right (and is deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary."
           ]
         },
@@ -780,7 +780,7 @@ export const termsDoc: LegalDocData = {
       "blocks": [
         {
           "type": "p",
-          "text": "Governing law. These Terms and any dispute or claim arising out of or in connection with them or their subject matter (including non-contractual disputes) are governed by the law of England and Wales. [TO BE CONFIRMED by the owner — choice of England & Wales as governing law and the operator's jurisdiction should be confirmed against where the legal entity is established.]",
+          "text": "Governing law. These Terms and any dispute or claim arising out of or in connection with them or their subject matter (including non-contractual disputes) are governed by the law of England and Wales.",
           "items": []
         },
         {

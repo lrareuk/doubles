@@ -99,7 +99,10 @@ export function LegalDoc({ kicker, updated, data }: { kicker: string; updated: s
           </section>
         ))}
 
-        {data.reviewNotes.length > 0 && (
+        {/* Internal pre-publish checklist — hidden on the public site. The notes
+            live in the source (legal-data.ts) + COMPLIANCE.md. Set
+            SHOW_LEGAL_REVIEW_NOTES=1 to preview them in a non-production build. */}
+        {process.env.SHOW_LEGAL_REVIEW_NOTES === '1' && data.reviewNotes.length > 0 && (
           <div className="doc__review">
             <strong>Owner to confirm before publishing:</strong>
             <ul style={{ marginTop: 8 }}>
