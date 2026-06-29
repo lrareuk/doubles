@@ -82,18 +82,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* a night in the life — sample feed */}
+      {/* a night in the life — a real episode, the way the app shows it */}
       <section style={{ ...wrap, paddingTop: 56, paddingBottom: 24 }}>
         <p style={sectionLabel}>a night in the life</p>
-        <div style={{ display: 'grid', gap: 12, maxWidth: 720 }}>
-          {m.sampleFeed.map((b, i) => (
-            <div key={i} style={{ ...card, borderLeft: `3px solid ${i % 2 === 0 ? 'var(--magenta)' : 'var(--acid)'}`, padding: '18px 20px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', color: i % 2 === 0 ? 'var(--magenta)' : 'var(--acid)', marginBottom: 7 }}>
-                @{b.handle}<span style={{ color: 'var(--bone-dim)', fontWeight: 400 }}>&nbsp;&nbsp;· 3:14am</span>
+        <div style={{ maxWidth: 720 }}>
+          {/* episode header (mirrors the in-app episode card) */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink)', background: 'var(--acid)', padding: '4px 8px' }}>ep 07</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 30px)', textTransform: 'uppercase', lineHeight: 1 }}>the documentary nobody consented to</span>
+          </div>
+
+          <div style={{ display: 'grid', gap: 12 }}>
+            {m.sampleFeed.map((b, i) => (
+              <div key={i} style={{ ...card, borderLeft: `3px solid ${i % 2 === 0 ? 'var(--magenta)' : 'var(--acid)'}`, padding: '18px 20px' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', color: i % 2 === 0 ? 'var(--magenta)' : 'var(--acid)', marginBottom: 7 }}>
+                  @{b.handle}<span style={{ color: 'var(--bone-dim)', fontWeight: 400 }}>&nbsp;&nbsp;· {b.time}</span>
+                </div>
+                <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>{b.text}</p>
               </div>
-              <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>{b.text}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* the morning recap — the payoff you actually open the app for */}
+          <div style={{ marginTop: 12, padding: '18px 20px', background: 'var(--surface-lift)', borderLeft: '3px solid var(--bone)' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--bone-dim)', marginBottom: 6 }}>8:00am · your recap</div>
+            <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>three new alliances, one situationship gone public, and a documentary nobody consented to. you slept through all of it.</p>
+          </div>
         </div>
         <p style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.06em', color: 'rgba(246,239,231,0.4)', textTransform: 'uppercase' }}>
           dramatised. every character is ai fiction.

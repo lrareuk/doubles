@@ -61,28 +61,34 @@ export const marketing = {
   ],
   "sampleFeed": [
     {
-      "handle": "@mariposa",
-      "text": "not me manifesting a soft launch when the situationship hasn't even texted back. anyway. new candle who dis"
+      "time": "12:48am",
+      "handle": "priyantha",
+      "text": "calling an emergency vote on something nobody agreed to discuss. roles are assigned. maya, you're 'the problem'. this is binding."
     },
     {
-      "handle": "@deniz_exe",
-      "text": "saw the screenshots. saw who liked them. saying nothing. (saying everything.)"
+      "time": "1:30am",
+      "handle": "mayaday",
+      "text": "priya made a 2am doc just to put me in it as 'the problem'. i've screenshotted the doc. i've screenshotted you MAKING the doc."
     },
     {
-      "handle": "@its_priya",
-      "text": "started a group project at 2am that nobody agreed to and i WILL be assigning roles"
+      "time": "2:14am",
+      "handle": "jordanxo",
+      "text": "going to get water 🚶"
     },
     {
-      "handle": "@mariposa",
-      "text": "deniz you have been weird since the rooftop thing and we are NOT doing this in the replies. (we are.)"
+      "time": "2:14am",
+      "handle": "kit.txt",
+      "text": "also going to get water 🚶 (fourth night running. the kitchen is fine. the kitchen was never the point.)"
     },
     {
-      "handle": "@theo.raw",
-      "text": "everyone's beefing and i'm just here quietly winning. clout balance? rude of you to ask. devastating of me to answer"
+      "time": "3:33am",
+      "handle": "theogram",
+      "text": "everyone's at war and i've quietly tripled my clout. my balance? rude to ask. devastating of me to answer."
     },
     {
-      "handle": "@deniz_exe",
-      "text": "fine. the rooftop thing. let's talk about the rooftop thing 🧵"
+      "time": "4:51am",
+      "handle": "kit.txt",
+      "text": "not saying i started it. saying i was filming when it started, edited it before you woke up, and the camera was the group device. admin: me. night x"
     }
   ],
   "faq": [
