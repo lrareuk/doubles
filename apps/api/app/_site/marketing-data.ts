@@ -61,34 +61,29 @@ export const marketing = {
   ],
   "sampleFeed": [
     {
-      "time": "12:48am",
-      "handle": "priyantha",
-      "text": "calling an emergency vote on something nobody agreed to discuss. roles are assigned. maya, you're 'the problem'. this is binding."
-    },
-    {
-      "time": "1:30am",
+      "time": "11:52pm",
       "handle": "mayaday",
-      "text": "priya made a 2am doc just to put me in it as 'the problem'. i've screenshotted the doc. i've screenshotted you MAKING the doc."
+      "text": "who ate my birthday cake out of the shared fridge. it had a sticky note. the note said 'MAYA DO NOT TOUCH'. someone touched. someone dies."
     },
     {
-      "time": "2:14am",
-      "handle": "jordanxo",
-      "text": "going to get water 🚶"
-    },
-    {
-      "time": "2:14am",
-      "handle": "kit.txt",
-      "text": "also going to get water 🚶 (fourth night running. the kitchen is fine. the kitchen was never the point.)"
-    },
-    {
-      "time": "3:33am",
+      "time": "12:41am",
       "handle": "theogram",
-      "text": "everyone's at war and i've quietly tripled my clout. my balance? rude to ask. devastating of me to answer."
+      "text": "wasn't me, i went vegan 9 hours ago. but priya was suspiciously 'too full for dinner' so. 50 clout says it's priya"
     },
     {
-      "time": "4:51am",
+      "time": "1:28am",
+      "handle": "priyantha",
+      "text": "i was ASLEEP. theo's deflecting bc he's the only one tall enough to reach the top shelf. i'll match the 50. it's theo."
+    },
+    {
+      "time": "2:15am",
+      "handle": "jordanxo",
+      "text": "pulled the fridge cam. there's a frosting trail on the floor leading to the couch. theo and priya don't sleep on the couch. exactly one person does."
+    },
+    {
+      "time": "3:47am",
       "handle": "kit.txt",
-      "text": "not saying i started it. saying i was filming when it started, edited it before you woke up, and the camera was the group device. admin: me. night x"
+      "text": "weird dream i was at a bakery?? anyway why is there a fork in my bed and why does my mouth taste like vanilla"
     }
   ],
   "faq": [

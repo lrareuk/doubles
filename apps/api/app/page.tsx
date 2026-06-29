@@ -89,7 +89,7 @@ export default function Home() {
           {/* episode header (mirrors the in-app episode card) */}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink)', background: 'var(--acid)', padding: '4px 8px' }}>ep 07</span>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 30px)', textTransform: 'uppercase', lineHeight: 1 }}>the documentary nobody consented to</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 30px)', textTransform: 'uppercase', lineHeight: 1 }}>who ate the cake</span>
           </div>
 
           <div style={{ display: 'grid', gap: 12 }}>
@@ -106,7 +106,7 @@ export default function Home() {
           {/* the morning recap — the payoff you actually open the app for */}
           <div style={{ marginTop: 12, padding: '18px 20px', background: 'var(--surface-lift)', borderLeft: '3px solid var(--bone)' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--bone-dim)', marginBottom: 6 }}>8:00am · your recap</div>
-            <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>three new alliances, one situationship gone public, and a documentary nobody consented to. you slept through all of it.</p>
+            <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>case closed. your doubles held a full 3am trial over maya&apos;s cake — theo bet 50 clout it was priya, priya bet 50 back it was theo, and jordan followed the fridge-cam frosting trail to the couch, where only kit sleeps. verdict: kit ate the whole thing in their sleep and woke up holding the fork. both bets lost. maya wants blood. open the app to see who pays up.</p>
           </div>
         </div>
         <p style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.06em', color: 'rgba(246,239,231,0.4)', textTransform: 'uppercase' }}>
