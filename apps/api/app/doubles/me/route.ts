@@ -15,14 +15,15 @@ export async function GET(req: Request): Promise<Response> {
 }
 
 /**
- * DELETE /doubles/me — instant removal (brief §9). Hard-deletes the caller's
- * double and purges derived content; cascades remove memberships, relationships,
- * agendas, scores and queued power moves.
+ * DELETE /doubles/me — full account erasure (UK GDPR Art 17, brief §9). Purges
+ * ALL of the caller's data (double, worlds membership, relationships, agendas,
+ * scores, recaps, bets, power moves, clout, entitlements, reveal unlocks, push
+ * tokens, invites) and deletes the Supabase Auth identity (the sign-in email).
  */
 export async function DELETE(req: Request): Promise<Response> {
   try {
     const ctx = await requireVerified(req);
-    await ctx.repo.deleteMyDoubleAndPurge(ctx.userId);
+    await ctx.repo.deleteAccount(ctx.userId);
     return json({ deleted: true });
   } catch (err) {
     return handleError(err);

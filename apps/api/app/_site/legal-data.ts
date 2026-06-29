@@ -5,7 +5,7 @@ import type { LegalDocData } from './chrome';
 
 export const privacyDoc: LegalDocData = {
   "docTitle": "Doubles — Privacy Policy",
-  "plainSummary": "You sleep; your double doesn't — and we want you to know exactly what happens to your data while it does. Doubles is an 18+ AI social-sim. To run it, we collect the basics needed for an account (your email and name from your sign-in provider), the fictional \"double\" you write (its name, @handle, persona/\"brief\" text, trait chips and accent colour), your worlds, agendas, clout bets and power moves, your device's push token for the morning recap, and a date of birth you enter once, checked on your device only to confirm you are 18 or older — we store only the confirmation that you passed, not your date of birth. Your data is protected in transit with industry-standard TLS encryption and is encrypted at rest by our hosting provider (Supabase), whose servers for this project are in the EU/London. We do not currently apply additional on-device (client-side) encryption to the content you create. To generate each night's episode, your double's persona and brief are sent to Anthropic (Claude); Anthropic does not train on this data and deletes API logs within about 7 days. We do not sell or \"share\" your personal information for advertising, the app is strictly for adults, and you can delete your double and its game data from inside the app at any time, and can ask us to erase your remaining account data (such as your sign-in email and purchase history) by emailing us. This notice explains all of it, your rights under UK/EU GDPR and US/California law, and how to reach a real person.",
+  "plainSummary": "You sleep; your double doesn't — and we want you to know exactly what happens to your data while it does. Doubles is an 18+ AI social-sim. To run it, we collect the basics needed for an account (your email and name from your sign-in provider), the fictional \"double\" you write (its name, @handle, persona/\"brief\" text, trait chips and accent colour), your worlds, agendas, clout bets and power moves, your device's push token for the morning recap, and a date of birth you enter once, checked on your device only to confirm you are 18 or older — we store only the confirmation that you passed, not your date of birth. Your data is protected in transit with industry-standard TLS encryption and is encrypted at rest by our hosting provider (Supabase), whose servers for this project are in the EU/London (eu-west-2). We do not currently apply additional on-device (client-side) encryption to the content you create. To generate each night's episode, your double's persona and brief are sent to Anthropic (Claude); Anthropic does not train on this data and deletes API logs within about 7 days. We do not sell or \"share\" your personal information for advertising, the app is strictly for adults, and you can permanently delete your entire account and all your personal data from inside the app at any time. This notice explains all of it, your rights under UK/EU GDPR and US/California law, and how to reach a real person.",
   "sections": [
     {
       "heading": "1. Who we are and how to contact us",
@@ -147,7 +147,7 @@ export const privacyDoc: LegalDocData = {
       "blocks": [
         {
           "type": "p",
-          "text": "Your data is protected with industry-standard TLS encryption in transit, and is encrypted at rest by our hosting provider (Supabase). We do not currently apply additional on-device (client-side) encryption to the content you create. Access to our systems is restricted, our database enforces row-level security so users can only reach their own data, and we use the security features of our hosting providers.",
+          "text": "Your data is protected with industry-standard TLS encryption in transit, and is encrypted at rest by our hosting provider (Supabase) in the EU/London (eu-west-2). We do not currently apply additional on-device (client-side) encryption to the content you create. Access to our systems is restricted, our database enforces row-level security so users can only reach their own data, and we use the security features of our hosting providers.",
           "items": []
         },
         {
@@ -273,22 +273,22 @@ export const privacyDoc: LegalDocData = {
       "blocks": [
         {
           "type": "p",
-          "text": "You are in control of your data, and you can remove it in two ways.",
+          "text": "You are in control of your data, and you can erase it completely.",
           "items": []
         },
         {
           "type": "p",
-          "text": "In the app (Settings → Delete), you can delete your double and its associated game data — your worlds memberships, relationships, agendas, predictions, clout balances and scores. This happens immediately.",
+          "text": "From inside the app (Settings → Delete), you can permanently delete your entire account and everything we hold about you — your double, your worlds membership, relationships, agendas, predictions, clout, scores, entitlement records and push tokens, together with your sign-in identity (your email). This happens immediately and cannot be undone.",
           "items": []
         },
         {
           "type": "p",
-          "text": "To fully close your account and erase your remaining personal data — including your sign-in email, your age-confirmation record and your purchase/entitlement history — email us at alex@lrare.co.uk. We will erase it without undue delay (and within one month), except where we must keep limited records to comply with a legal obligation (for example, tax records relating to purchases).",
+          "text": "If you would rather we do it for you, email alex@lrare.co.uk and we will erase your data without undue delay (and within one month). We retain only what the law requires (for example, limited transaction records for tax). Purchases themselves are processed and recorded by Apple or Google under their own policies and retention rules.",
           "items": []
         },
         {
           "type": "p",
-          "text": "Purchases are processed by Apple or Google. To cancel an auto-renewing subscription you must also manage it in your App Store or Google Play account; deleting your data here does not by itself cancel a store subscription.",
+          "text": "Deleting your data here does not by itself cancel an auto-renewing subscription — you must also manage that in your App Store or Google Play account.",
           "items": []
         }
       ]
@@ -310,8 +310,8 @@ export const privacyDoc: LegalDocData = {
     }
   ],
   "reviewNotes": [
-    "AGE ASSURANCE (legally required, overdue): the current in-app self-declared date-of-birth check is NOT 'highly effective age assurance' under the Online Safety Act 2023 / Ofcom guidance. Integrate a third-party HEAA provider gating sign-up, store only the over-18 result, and complete a Children's Access Assessment BEFORE launch. See COMPLIANCE.md.",
-    "Security wording now states TLS-in-transit + at-rest encryption by Supabase (no on-device AES) to match the code. If you add real client-side encryption later, update sections 2/6 accordingly.",
+    "AGE ASSURANCE (legally required, overdue): the in-app self-declared date-of-birth check is NOT 'highly effective age assurance' under the Online Safety Act 2023 / Ofcom guidance. Integrate a third-party HEAA provider gating sign-up, store only the over-18 result, complete a Children's Access Assessment, BEFORE launch. See COMPLIANCE.md.",
+    "Security wording states TLS-in-transit + at-rest by Supabase (eu-west-2), no on-device AES — matches the code. Update if real client-side encryption is added later.",
     "Legal entity name is a placeholder: confirm the exact registered entity that operates Doubles and replace \"Pellar Technologies Limited\" throughout (e.g. a Ltd company name and number, or the named sole trader).",
     "Add a real postal/registered contact address in section 1 (currently \"115 New Bridge Street, Newcastle-upon-Tyne, NE1 2SW\"). ICO guidance and the app stores expect a contactable address.",
     "Confirm governing law: drafted as England & Wales. Confirm this matches your Terms of Service.",
@@ -319,9 +319,7 @@ export const privacyDoc: LegalDocData = {
     "Confirm date of birth handling: the draft says you keep only a minimal \"passed 18+ check\" flag (the schema has age_verified / age_verified_at booleans) rather than retaining full DOB long-term — verify this matches the actual implementation, and if you do store full DOB, adjust sections 2 and 7.",
     "Confirm Anthropic API retention figure (drafted as ~7 days, per Anthropic's current commercial terms). If you have a Zero Data Retention (ZDR) agreement, update section 4/7 to say so. Re-verify Anthropic, Supabase and Vercel DPAs/SCCs are actually executed/accepted.",
     "Confirm exactly what is sent to Anthropic. Draft states only in-character text (double name, handle, persona/brief, traits, world context) — and never email, DOB or payment data. Verify against the engine's gather/prompt code.",
-    "Confirm Supabase hosting region as EU/London (eu-west-2) in production, and Vercel's processing region(s), so section 5 transfers language is correct.",
     "Marketing website (section 11): confirm lrare.co.uk genuinely uses no non-essential/tracking cookies and no analytics. If analytics exist, a cookie banner/consent and a cookies section are required.",
-    "Confirm the in-app deletion flow truly purges user data (and the backup-rotation window) so sections 7 and 13 are accurate; add the actual Settings path if it differs from \"Settings → Delete Account\".",
     "Decide whether to add a versioned \"Last updated\" date and a short change-log; insert the launch date in section 14.",
     "If the app is also offered to US residents in states beyond California (e.g. Virginia, Colorado, Connecticut, Texas), consider a brief note that similar rights may apply — optional but recommended.",
     "Confirm \"clout\" is genuinely non-cashable with no real-world value and that bets/packs/subscriptions comply with Apple/Google IAP rules and UK gambling/loot-box guidance — a lawyer should sanity-check the betting mechanic given an 18+ audience."
@@ -806,7 +804,6 @@ export const termsDoc: LegalDocData = {
     }
   ],
   "reviewNotes": [
-    "GAMBLING: obtain a written UK gambling-law opinion on the FINAL clout design before launch. Keep purchased clout non-stakeable (the code already does not credit purchased clout to the stakeable balance), guarantee no cash-out/transfer, and add spend caps. See COMPLIANCE.md.",
     "AGE ASSURANCE: replace self-declared DOB with highly effective age assurance before launch (Online Safety Act 2023). See COMPLIANCE.md.",
     "LEGAL ENTITY NAME — confirm and insert the exact operating entity. Currently a flagged placeholder \"Doubles (operated by Pellar Technologies Limited)\". If a limited company, add the registered company number and registered office; if a sole trader, add a trading name and a contact/postal address (Apple's minimum EULA terms require a developer name and address).",
     "GOVERNING LAW & JURISDICTION — England & Wales is used throughout but FLAGGED. Confirm this matches where the entity is established and where you want to litigate. Consider whether you want exclusive vs non-exclusive jurisdiction.",

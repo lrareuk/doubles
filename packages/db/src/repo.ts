@@ -134,6 +134,26 @@ export class Repo {
     await this.audit(userId, 'delete_double', null, { doubleId: dbl.id });
   }
 
+  /**
+   * Full account erasure (UK GDPR right to erasure, Art 17). Deleting the `users`
+   * row cascades to ALL user-keyed data: the double (and its world_members,
+   * relationships, agendas, season_scores), recaps, bets, power_moves,
+   * clout_balances, entitlements, reveal_unlocks, device_tokens and world_invites.
+   * `audit_log.user_id` is ON DELETE SET NULL, leaving an anonymised erasure trail.
+   * Finally we delete the Supabase Auth identity (the sign-in email) itself.
+   */
+  async deleteAccount(userId: string): Promise<void> {
+    // Logged while the user still exists; the cascade anonymises this row (SET NULL).
+    await this.audit(userId, 'delete_account', null, {});
+
+    const { error } = await this.sb.from('users').delete().eq('id', userId);
+    if (error) throw new Error(`account purge failed: ${error.message}`);
+
+    // Remove the authentication identity (email) for complete erasure.
+    const { error: authErr } = await this.sb.auth.admin.deleteUser(userId);
+    if (authErr) throw new Error(`auth identity deletion failed: ${authErr.message}`);
+  }
+
   // ---- worlds & seasons ----
   async createWorld(userId: string, input: CreateWorldInput): Promise<World> {
     await this.ensureUser(userId);
