@@ -80,7 +80,6 @@ export function LegalDoc({ kicker, updated, data }: { kicker: string; updated: s
         <div className="doc__kicker">{kicker}</div>
         <h1>{data.docTitle}</h1>
         <div className="doc__meta">last updated · {updated}</div>
-        <p className="doc__summary">{data.plainSummary}</p>
 
         {data.sections.map((s, i) => (
           <section key={i}>
