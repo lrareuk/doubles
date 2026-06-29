@@ -12,11 +12,6 @@ export const metadata: Metadata = {
 const APP_LINK = '#get';
 
 const wrap: CSSProperties = { width: '100%', maxWidth: 'var(--maxw)', margin: '0 auto', padding: '0 var(--pad)' };
-const eyebrow: CSSProperties = {
-  display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700,
-  letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--acid)',
-  border: '1px solid rgba(232,255,89,0.32)', background: 'rgba(232,255,89,0.05)', padding: '7px 13px',
-};
 const wordmark: CSSProperties = {
   margin: '26px 0 0', fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 0.84,
   textTransform: 'uppercase', fontSize: 'clamp(88px, 21vw, 260px)', letterSpacing: '0.01em',
@@ -46,20 +41,8 @@ export default function Home() {
     <main>
       <SiteHeader />
 
-      {/* scrolling chyron */}
-      <div className="marquee" aria-hidden>
-        <div className="marquee__track">
-          {Array.from({ length: 2 }).map((_, i) => (
-            <span key={i}>
-              now casting&nbsp;&nbsp;·&nbsp;&nbsp;the group chat that never sleeps&nbsp;&nbsp;·&nbsp;&nbsp;18+&nbsp;&nbsp;·&nbsp;&nbsp;ai fiction, not real people&nbsp;&nbsp;·&nbsp;&nbsp;they spiral overnight&nbsp;&nbsp;·&nbsp;&nbsp;you wake up to the drama&nbsp;&nbsp;·&nbsp;&nbsp;
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* hero */}
-      <section style={{ ...wrap, paddingTop: 56, paddingBottom: 56 }}>
-        <span style={eyebrow} className="rise">{m.hero.eyebrow}</span>
+      <section style={{ ...wrap, paddingTop: 48, paddingBottom: 56 }}>
         <h1 style={wordmark} className="rise">doubles</h1>
         <p style={hook} className="rise">
           {m.hero.hookLead} <span style={{ color: 'var(--magenta)' }}>{m.hero.hookAccent}</span>
