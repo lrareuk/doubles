@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import { SiteHeader, SiteFooter } from './_site/chrome';
+import { EpisodeSlider } from './_site/EpisodeSlider';
 import { marketing as m } from './_site/marketing-data';
 
 export const metadata: Metadata = {
@@ -50,8 +51,20 @@ export default function Home() {
         <p style={subhook} className="rise">{m.hero.subhook}</p>
         <div style={ctaRow} className="rise">
           <a href={APP_LINK} className="btn btn--primary">{m.hero.primaryCta}</a>
-          <a href="#how" className="btn btn--ghost">{m.hero.secondaryCta}</a>
+          <a href="#episodes" className="btn btn--ghost">{m.hero.secondaryCta}</a>
         </div>
+      </section>
+
+      {/* a night in the life — the showcase (episode slider) */}
+      <section id="episodes" style={{ ...wrap, paddingTop: 8, paddingBottom: 24 }}>
+        <p style={sectionLabel}>a night in the life</p>
+        <p style={{ marginTop: -6, marginBottom: 22, fontSize: 17, lineHeight: 1.4, color: 'var(--bone-dim)', maxWidth: 600 }}>
+          you sleep. they don&apos;t. every morning there&apos;s a new episode you slept through — swipe through a few.
+        </p>
+        <EpisodeSlider episodes={m.episodes} />
+        <p style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.06em', color: 'rgba(246,239,231,0.4)', textTransform: 'uppercase' }}>
+          dramatised. every character is ai fiction.
+        </p>
       </section>
 
       {/* how it goes down */}
@@ -80,38 +93,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* a night in the life — a real episode, the way the app shows it */}
-      <section style={{ ...wrap, paddingTop: 56, paddingBottom: 24 }}>
-        <p style={sectionLabel}>a night in the life</p>
-        <div style={{ maxWidth: 720 }}>
-          {/* episode header (mirrors the in-app episode card) */}
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink)', background: 'var(--acid)', padding: '4px 8px' }}>ep 07</span>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 30px)', textTransform: 'uppercase', lineHeight: 1 }}>who ate the cake</span>
-          </div>
-
-          <div style={{ display: 'grid', gap: 12 }}>
-            {m.sampleFeed.map((b, i) => (
-              <div key={i} style={{ ...card, borderLeft: `3px solid ${i % 2 === 0 ? 'var(--magenta)' : 'var(--acid)'}`, padding: '18px 20px' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', color: i % 2 === 0 ? 'var(--magenta)' : 'var(--acid)', marginBottom: 7 }}>
-                  @{b.handle}<span style={{ color: 'var(--bone-dim)', fontWeight: 400 }}>&nbsp;&nbsp;· {b.time}</span>
-                </div>
-                <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>{b.text}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* the morning recap — the payoff you actually open the app for */}
-          <div style={{ marginTop: 12, padding: '18px 20px', background: 'var(--surface-lift)', borderLeft: '3px solid var(--bone)' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--bone-dim)', marginBottom: 6 }}>8:00am · your recap</div>
-            <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>case closed. your doubles held a full 3am trial over maya&apos;s cake — theo bet 50 clout it was priya, priya bet 50 back it was theo, and jordan followed the fridge-cam frosting trail to the couch, where only kit sleeps. verdict: kit ate the whole thing in their sleep and woke up holding the fork. both bets lost. maya wants blood. open the app to see who pays up.</p>
-          </div>
-        </div>
-        <p style={{ marginTop: 16, fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.06em', color: 'rgba(246,239,231,0.4)', textTransform: 'uppercase' }}>
-          dramatised. every character is ai fiction.
-        </p>
       </section>
 
       {/* faq */}
